@@ -37,16 +37,14 @@
                     <!--=====FORM INPUT TÀI KHOẢN VÀ PASSWORD======-->
                     <form id="add" runat="server">
                         <div class="wrap-input100 validate-input">
-                            <input class="input100" type="text" placeholder="Tài khoản quản trị" name="username"
-                                id="username"/>
+                            <asp:TextBox ID="txtEmail" runat="server" CssClass="input100" placeholder="Tài khoản quản trị"></asp:TextBox>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class='bx bx-user'></i>
                             </span>
                         </div>
                         <div class="wrap-input100 validate-input">
-                            <input autocomplete="off" class="input100" type="password" placeholder="Mật khẩu"
-                                name="current-password" id="password-field"/>
+                            <asp:TextBox ID="txtPassword" runat="server" CssClass="input100" TextMode="Password" placeholder="Mật khẩu"></asp:TextBox>
                             <span toggle="#password-field" class="bx fa-fw bx-hide field-icon click-eye"></span>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -58,19 +56,22 @@
                         <%--<div class="container-login100-form-btn">
                             <input type="button" value="Đăng nhập" id="submit" onclick="validate()" />
                         </div>--%>
-                        <asp:Button ID="btnDangNhap" CssClass="container-login100-form-btn" runat="server" Text="Đăng nhập" OnClick="btnDangNhap_Click" />
+                        <asp:Button ID="btnDangNhap" runat="server" CssClass="login100-form-btn" Text="Đăng nhập" OnClick="btnDangNhap_Click" />
                         <!--=====LINK TÌM MẬT KHẨU======-->
                         <div class="text-right p-t-12">
-                            <a class="txt2" href="/forgot.html">
-                                Bạn quên mật khẩu?
+                            <a class="txt2" href="/forgot.html">Bạn quên mật khẩu?
                             </a>
                         </div>
                     </form>
+                    <div>
+                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblMessage1" runat="server" ForeColor="Red"></asp:Label>
+                    </div>
                     <!--=====FOOTER======-->
                     <div class="text-center p-t-70 txt2">
                         Phần mềm quản lý bán hàng <i class="far fa-copyright" aria-hidden="true"></i>
                         <script type="text/javascript">document.write(new Date().getFullYear());</script> <a
-                            class="txt2" href="https://www.facebook.com/truongvo.vd1503/"> Code bởi Trường </a>
+                            class="txt2" href="https://www.facebook.com/dinhduyy/"> Code bởi Duy </a>
                     </div>
                 </form>
             </div>

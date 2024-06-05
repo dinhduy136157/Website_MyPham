@@ -73,6 +73,7 @@
     <Content Include="View\Admin\Customer\Index.aspx" />
     <Content Include="View\Admin\Employee\Add.aspx" />
     <Content Include="View\Admin\Employee\Index.aspx" />
+    <Content Include="View\Admin\Index.aspx" />
     <Content Include="View\Admin\Login\Index.aspx" />
     <Content Include="View\Admin\Order\Index.aspx" />
     <Content Include="View\Admin\Product\Index.aspx" />
@@ -83,6 +84,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\LoginEmployeeController.cs" />
     <Compile Include="Controllers\OrderItemController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -134,6 +136,13 @@
     <Compile Include="View\Admin\Employee\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
+    <Folder Include="View\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

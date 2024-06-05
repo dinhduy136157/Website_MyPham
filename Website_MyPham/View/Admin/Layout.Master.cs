@@ -11,7 +11,19 @@ namespace Website_MyPham.View.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Session["EmployeeEmail"] == null)
+            {
+                Response.Redirect("~/View/Admin/Login/Index.aspx");
+            }
+        }
+        protected void LogoutAndRedirect(object sender, EventArgs e)
+        {
+            // Xóa tất cả các session
+            Session.Clear();
 
+            // Chuyển hướng đến trang đăng nhập
+            Response.Redirect("~/View/Admin/Login/Index.aspx");
         }
     }
 }

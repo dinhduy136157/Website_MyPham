@@ -30,7 +30,7 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="javascript:void(0);" onclick="LogoutAndRedirect();"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -38,29 +38,30 @@
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<%= ResolveUrl("~/images/"+ Session["EmployeeAvatar"].ToString()) %>" width="50"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Võ Trường</b></p>
+        <p class="app-sidebar__user-name"><b><%= Session["EmployeeFullName"].ToString() %></b></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item " href="../Employee/Index.aspx"><i class='app-menu__icon bx bx-id-card'></i> <span
+      <li><a class="app-menu__item" href="<%= ResolveUrl("~/View/Admin/Index.aspx") %>"><i
+            class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Thống kê</span></a>
+      </li>
+      <li><a class="app-menu__item " href="<%= ResolveUrl("~/View/Admin/Employee/Index.aspx") %>"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý nhân viên</span></a></li>
-      <li><a class="app-menu__item" href="../Customer/Index.aspx"><i class='app-menu__icon bx bx-user-voice'></i><span
+      <li><a class="app-menu__item" href="<%= ResolveUrl("~/View/Admin/Customer/Index.aspx") %>"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý Customer</span></a></li>
-      <li><a class="app-menu__item" href="../Product/Index.aspx"><i
+      <li><a class="app-menu__item" href="<%= ResolveUrl("~/View/Admin/Product/Index.aspx") %>"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý Product</span></a>
       </li>
-      <li><a class="app-menu__item" href="../Order/Index.aspx"><i class='app-menu__icon bx bx-task'></i><span
+      <li><a class="app-menu__item" href="<%= ResolveUrl("~/View/Admin/Order/Index.aspx") %>"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-       <li><a class="app-menu__item" href="../Category/Index.aspx"><i class='app-menu__icon bx bx-task'></i><span
+       <li><a class="app-menu__item" href="<%= ResolveUrl("~/View/Admin/Category/Index.aspx") %>"><i class='app-menu__icon bx bx-task'></i><span
       class="app-menu__label">Quản lý loại</span></a></li>
-      <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
-            class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Thong ke, bao cao</span></a>
-      </li>
+      
       <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
             đặt hệ thống</span></a></li>
     </ul>
@@ -70,7 +71,12 @@
         <asp:ContentPlaceHolder ID="Content" runat="server" />
       </div>
   </main>
-  
+  <script>
+      function LogoutAndRedirect() {
+          // Thực hiện chuyển hướng đến trang đăng nhập và xóa session
+          window.location.href = '/View/Admin/Login/Index.aspx?logout=true';
+      }
+  </script>
   <script src="js/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
   <script src="js/popper.min.js"></script>
