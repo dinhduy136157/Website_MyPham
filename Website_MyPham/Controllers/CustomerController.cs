@@ -39,5 +39,19 @@ namespace Website_MyPham.Controllers
             con.Close();
             return ds;
         }
+        public void AddCustomer(Customer customer)
+        {
+            con.Open();
+            string sql = "insert into Customer values(@first_name,@last_name,@email,@password, @address, @phone_number)";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("first_name", customer.first_name);
+            cmd.Parameters.AddWithValue("last_name", customer.last_name);
+            cmd.Parameters.AddWithValue("email", customer.email);
+            cmd.Parameters.AddWithValue("password", customer.password);
+            cmd.Parameters.AddWithValue("address", customer.address);
+            cmd.Parameters.AddWithValue("phone_number", customer.phone_number);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

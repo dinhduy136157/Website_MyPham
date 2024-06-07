@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Website_MyPham.View.User.Layout" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -20,12 +19,58 @@
     <link rel="stylesheet" href="./assets/css/common.css">
     <!-- index -->
     <link href="./assets/css/home.css" rel="stylesheet" />
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
     <script src="./assets/owlCarousel/owl.carousel.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        //$(document).ready(function () {
+            <%-- Form Đăng Ký--%>
+            <%--$('#form-register').submit(function (event) {
+                event.preventDefault(); // Ngăn chặn form gửi thông thường
+                var formData = {
+                    first_name: $('input[name="first_name"]').val(),
+                    last_name: $('input[name="last_name"]').val(),
+                    email: $('input[name="email"]').val(),
+                    phone_number: $('input[name="phone_number"]').val(),
+                    password: $('input[name="password"]').val(),
+                    address: $('input[name="address"]').val()
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '<%= ResolveUrl("~/Register.aspx/RegisterUser") %>',
+                    data: JSON.stringify( formData ),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function (response) {
+                        alert('Registration successful: ' + response.d);
+                    },
+                    error: function (error) {
+                        alert('Error: ' + error.responseText);
+                    }
+                });
+            });--%>
+            <%-- Form Đăng Nhập--%>
+            //$('#form2').submit(function (event) {
+            //    event.preventDefault(); // Ngăn chặn form gửi thông thường
+            //    $.ajax({
+            //        type: 'POST',
+            //        url: 'Layout.Master/SubmitFormLogin',
+            //        data: JSON.stringify({ input2: $('#input2').val() }),
+            //        contentType: 'application/json; charset=utf-8',
+            //        dataType: 'json',
+            //        success: function (response) {
+            //            alert('Form 2: ' + response.d);
+            //        },
+            //        error: function (error) {
+            //            alert('Error: ' + error.responseText);
+            //        }
+            //    });
+            //});
+        //});
+    </script>
 </head>
 <body>
     <div class="header scrolling" id="myHeader">
@@ -231,7 +276,7 @@
         <!-- Slider -->
         <div class="main__slice">
             <div class="slider">
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-6.jpg)">
+                <div class="slide active" style="background-image: url(./assets/img/slider/slide-6.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
@@ -241,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-4.jpg)">
+                <div class="slide active" style="background-image: url(./assets/img/slider/slide-4.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
@@ -251,7 +296,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-5.jpg)">
+                <div class="slide active" style="background-image: url(./assets/img/slider/slide-5.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
@@ -278,7 +323,7 @@
     </div>
     <main class="app-content">
         <div class="Content">
-          <asp:ContentPlaceHolder ID="Content" runat="server" />
+            <asp:ContentPlaceHolder ID="Content" runat="server" />
         </div>
     </main>
     <div class="footer">
@@ -326,31 +371,31 @@
                     <ul class="footer__list">
                         <li class="footer__item">
                             <span class="footer__text">
-                                    <i class="fas fa-map-marked-alt"></i> Cầu Giấy
-                                </span>
+                                <i class="fas fa-map-marked-alt"></i>Cầu Giấy
+                            </span>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
-                                <i class="fas fa-phone"></i> 0333 053 858
+                                <i class="fas fa-phone"></i>0333 053 858
                             </a>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
-                                <i class="fas fa-envelope"></i> dinhduy136157@gmail.com
+                                <i class="fas fa-envelope"></i>dinhduy136157@gmail.com
                             </a>
                         </li>
                         <li class="footer__item">
                             <div class="social-group">
                                 <a href="#" class="social-item"><i class="fab fa-facebook-f"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-twitter"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-pinterest-p"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-invision"></i>
-                                    </a>
-                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>  
-                                    </a>
+                                </a>
+                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -374,67 +419,26 @@
             </div>
         </div>
         <div class="copyright">
-            <span class="footer__text"> &copy Bản quyền thuộc về <a class="footer__link" href="#"> Đinh Văn Duy</a></span>
+            <span class="footer__text">&copy Bản quyền thuộc về <a class="footer__link" href="#">Đinh Văn Duy</a></span>
         </div>
     </div>
     <!-- Modal Form -->
-<%--    <div class="ModalForm">
-        <div class="modal" id="my-Register">
-            <a href="#" class="overlay-close"></a>
-            <div class="authen-modal register">
-                <h3 class="authen-modal__title">Đăng Kí</h3>
-                <div class="form-group">
-                    <label for="account" class="form-label">Họ Tên</label>
-                    <input id="account" name="account" type="text" class="form-control">
-                    <span class="form-message">Không hợp lệ !</span>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Tài khoản Email *</label>
-                    <input id="password" name="password" type="text" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu *</label>
-                    <input id="password" name="password" type="text" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Nhập lại mật khẩu *</label>
-                    <input id="password" name="password" type="text" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-                <div class="authen__btns">
-                    <div class="btn btn--default">Đăng Kí</div>
-                </div>
+    <div class="ModalForm">
+        <form id="mainForm" runat="server">
+            <div class="modal" id="my-Register" style="margin: 5% auto; width: 500px; height: 700px;">
+                 <%-- Form Đăng Ký--%>
+                <iframe src="RegisterForm.aspx" style="width: 100%; height: 600px;"></iframe>
             </div>
-        </div>
-        <div class=" modal" id="my-Login">
-            <a href="#" class="overlay-close"></a>
-            <div class="authen-modal login">
-                <h3 class="authen-modal__title">Đăng Nhập</h3>
-                <div class="form-group">
-                    <label for="account" class="form-label">Địa chỉ email *</label>
-                    <input id="account" name="account" type="text" class="form-control">
-                    <span class="form-message">Tài khoản không chính xác !</span>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu *</label>
-                    <input id="password" name="password" type="text" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-                <div class="authen__btns">
-                    <div class="btn btn--default">Đăng Nhập</div>
-                    <input type="checkbox" class="authen-checkbox">
-                    <label class="form-label">Ghi nhớ mật khẩu</label>
-                </div>
-                <a class="authen__link">Quên mật khẩu ?</a>
+            <div class="modal" id="my-Login" style="margin: 10% auto; width: 500px;">
+                   <%-- Form Đăng Nhập--%>
+                <iframe src="LoginForm.aspx" style="width: 100%; height: 400px;"></iframe>
             </div>
-        </div>
+        </form>
         <div class="up-top" id="upTop" onclick="goToTop()">
             <i class="fas fa-chevron-up"></i>
         </div>
 
-    </div>--%>
+    </div>
     <script>
         $('.owl-carousel.hight').owlCarousel({
             loop: true,
