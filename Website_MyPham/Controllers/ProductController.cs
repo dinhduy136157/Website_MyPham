@@ -33,6 +33,7 @@ namespace Website_MyPham.Controllers
                 product.price = (decimal)rd["price"];
                 product.stock = (int)rd["stock"];
                 product.Category_catego = (int)rd["Category_catego"];
+                product.image = (string)rd["image"];
                 ds.Add(product);
             }
             con.Close();

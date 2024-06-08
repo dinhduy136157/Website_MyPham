@@ -13,18 +13,20 @@ namespace Website_MyPham.Models
         public decimal price { get; set; }
         public int stock { get; set; }
         public int Category_catego { get; set; }
+        public string image {  get; set; }
         public Product()
         {
 
         }
-        public Product(int product_id, string sKU, string description, decimal price, int stock, int category_catego)
+        public Product(int product_id, string sKU, string description, decimal price, int stock, int category_catego, string image)
         {
             this.product_id = product_id;
-            SKU = sKU;
+            this.SKU = sKU;
             this.description = description;
             this.price = price;
             this.stock = stock;
-            Category_catego = category_catego;
+            this.Category_catego = category_catego;
+            this.image = image;
         }
     }
 }

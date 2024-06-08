@@ -35,11 +35,11 @@
                 <input name="email" type="text" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="password" class="form-label">Địa chỉ email</label>
-                <input  name="password" type="text" class="form-control"/>
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input  name="password" type="password" class="form-control"/>
                 <span class="form-message"></span>
             </div>
-            <asp:Button ID="btnDangNhap" CssClass="btn btn-save" runat="server" Text="Đăng Nhập" OnClick="LoginUser" />
+            <asp:Button ID="btnDangNhap" runat="server" Text="Đăng Nhập" OnClick="LoginUser" />
             <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
         </div>
     </form>

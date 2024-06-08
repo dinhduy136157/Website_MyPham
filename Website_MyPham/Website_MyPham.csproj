@@ -77,6 +77,7 @@
     <Content Include="View\Admin\Login\Index.aspx" />
     <Content Include="View\Admin\Order\Index.aspx" />
     <Content Include="View\Admin\Product\Index.aspx" />
+    <Content Include="View\User\Cart\Index.aspx" />
     <Content Include="View\User\Index.aspx" />
     <Content Include="View\User\LoginForm.aspx" />
     <Content Include="View\User\RegisterForm.aspx" />
@@ -173,6 +174,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Admin\Product\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\Cart\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\Cart\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\User\Index.aspx.cs">

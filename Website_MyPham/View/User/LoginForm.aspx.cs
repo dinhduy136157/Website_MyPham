@@ -27,6 +27,7 @@ namespace Website_MyPham.View.User
                 // Lưu thông tin đăng nhập vào session
                 Session["CustomerEmail"] = cus.email;
                 Session["CustomerPassword"] = cus.password;
+                Session["CustomerFullName"] = cus.first_name + " " + cus.last_name;
                 // Chuyển hướng đến trang chủ
                 string redirectScript = "<script type='text/javascript'>window.top.location.href = 'Index.aspx';</script>";
                 Response.Write(redirectScript);
