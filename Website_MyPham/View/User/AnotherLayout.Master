@@ -1,12 +1,13 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Website_MyPham.View.User.Layout" %>
-<!DOCTYPE html>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AnotherLayout.master.cs" Inherits="Website_MyPham.View.User.AnotherLayout" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head runat="server">
-    <title>Website Mỹ Phẩm</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
     <!-- Font roboto -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,24 +15,27 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Reset css & grid sytem -->
     <link rel="stylesheet" href="./assets/css/library.css">
-    <link href="./assets/owlCarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Owl Slider css -->
+    <link rel="stylesheet" href="./assets/owlCarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/owlCarousel/assets/owl.theme.default.min.css">
     <!-- Layout -->
     <link rel="stylesheet" href="./assets/css/common.css">
     <!-- index -->
-    <link href="./assets/css/home.css" rel="stylesheet" />
-    <!-- Owl caroucel Js-->
-    <script src="./assets/owlCarousel/owl.carousel.min.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="./assets/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/product.css">
+    <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <!-- Owl caroucel Js-->
+    <script src="assets/owlCarousel/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <style>
-        .header__account-welcome{
-            font-size: 20px;
-            color: #ff0000;
-        }
-    </style>
+    .header__account-welcome{
+        font-size: 20px;
+        color: #ff0000;
+    }
+</style>
 </head>
+
 <body>
     <div class="header scrolling" id="myHeader">
         <div class="grid wide">
@@ -41,8 +45,8 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="./Index.aspx" class="header__logo">
-                    <img src="./assets/logo.png" alt="">
+                <a href="../Index.aspx" class="header__logo">
+                    <img src="../out_image/logo.png" alt="photos">
                 </a>
                 <div class="header__search">
                     <div class="header__search-wrap">
@@ -52,34 +56,29 @@
                         </a>
                     </div>
                 </div>
-                
                 <div class="header__account">
-                    <div class="header__account">
-                        <% 
-                            if (Session["CustomerFullName"] != null)
-                            {
-                                %> <a href="#my-Welcome" class="header__account-welcome">
-                                        Chào, <%= Session["CustomerFullName"] %>
-                                   </a> <%
-                            }
-                            else
-                            {
-                        %>
-                                <a href="#my-Login" class="header__account-login">Đăng Nhập</a>
-                                <a href="#my-Register" class="header__account-register">Đăng Kí</a>
-                        <% 
-                            }
-                        %>
+                    <% 
+                        if (Session["CustomerFullName"] != null)
+                        {
+                            %> <a href="#my-Welcome" class="header__account-welcome">
+                                    Chào, <%= Session["CustomerFullName"] %>
+                               </a> <%
+                        }
+                        else
+                        {
+                    %>
+                            <a href="#my-Login" class="header__account-login">Đăng Nhập</a>
+                            <a href="#my-Register" class="header__account-register">Đăng Kí</a>
+                    <% 
+                        }
+                    %>
                 </div>
-
-                </div>
-                
                 <!-- Cart -->
-                <a href="Cart/Index.aspx">
-                    <div class="header__cart have" href="#">
-                        <i class="fas fa-shopping-basket"></i>
-                    </div>
-                </a>
+                <a href="../Cart/Index.aspx">
+                <div class="header__cart have" href="#">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+</a>
             </div>
         </div>
         <!-- Menu -->
@@ -105,7 +104,7 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="./Index.aspx" class="header__nav-link">Trang chủ</a>
+                    <a href="../Index.aspx" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
@@ -115,7 +114,7 @@
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="#" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
                                 <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
@@ -135,7 +134,7 @@
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="#" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
                                 <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
@@ -155,7 +154,7 @@
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="#" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
                                 <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
@@ -175,7 +174,7 @@
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="#" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
                                 <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
@@ -205,59 +204,8 @@
         </div>
     </div>
     <div class="main">
-        <!-- Slider -->
-        <div class="main__slice">
-            <div class="slider">
-                <div class="slide active" style="background-image: url(./assets/img/slider/slide-6.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="slide active" style="background-image: url(./assets/img/slider/slide-4.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="slide active" style="background-image: url(./assets/img/slider/slide-5.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- controls  -->
-            <div class="controls">
-                <div class="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="next">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-            <!-- indicators -->
-            <div class="indicator">
-            </div>
-        </div>
+        <asp:ContentPlaceHolder ID="Content" runat="server" />
     </div>
-    <main class="app-content">
-        <div class="Content">
-            <asp:ContentPlaceHolder ID="Content" runat="server" />
-        </div>
-    </main>
     <div class="footer">
         <div class="grid wide">
             <div class="row">
@@ -303,31 +251,31 @@
                     <ul class="footer__list">
                         <li class="footer__item">
                             <span class="footer__text">
-                                <i class="fas fa-map-marked-alt"></i>Cầu Giấy
-                            </span>
+                                    <i class="fas fa-map-marked-alt"></i> 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM
+                                </span>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
-                                <i class="fas fa-phone"></i>0333 053 858
+                                <i class="fas fa-phone"></i> 076 922 0162
                             </a>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
-                                <i class="fas fa-envelope"></i>dinhduy136157@gmail.com
+                                <i class="fas fa-envelope"></i> phuonggiang150@gmail.com
                             </a>
                         </li>
                         <li class="footer__item">
                             <div class="social-group">
                                 <a href="#" class="social-item"><i class="fab fa-facebook-f"></i>
-                                </a>
+                                    </a>
                                 <a href="#" class="social-item"><i class="fab fa-twitter"></i>
-                                </a>
+                                    </a>
                                 <a href="#" class="social-item"><i class="fab fa-pinterest-p"></i>
-                                </a>
+                                    </a>
                                 <a href="#" class="social-item"><i class="fab fa-invision"></i>
-                                </a>
-                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>
-                                </a>
+                                    </a>
+                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>  
+                                    </a>
                             </div>
                         </li>
                     </ul>
@@ -351,90 +299,20 @@
             </div>
         </div>
         <div class="copyright">
-            <span class="footer__text">&copy Bản quyền thuộc về <a class="footer__link" href="#">Đinh Văn Duy</a></span>
+            <span class="footer__text"> &copy Bản quyền thuộc về <a class="footer__link" href="#"> Phương Giang</a></span>
         </div>
     </div>
     <!-- Modal Form -->
-    <div class="ModalForm">
-        <form id="mainForm" runat="server">
-            <div class="modal" id="my-Register" style="margin: 5% auto; width: 500px; height: 700px;">
-                 <%-- Form Đăng Ký--%>
-                <iframe src="RegisterForm.aspx" style="width: 100%; height: 600px;"></iframe>
-            </div>
-            <div class="modal" id="my-Login" style="margin: 10% auto; width: 500px;">
-                   <%-- Form Đăng Nhập--%>
-                <iframe src="LoginForm.aspx" style="width: 100%; height: 400px;"></iframe>
-            </div>
-        </form>
-        <div class="up-top" id="upTop" onclick="goToTop()">
-            <i class="fas fa-chevron-up"></i>
-        </div>
-
+    <div class="up-top" id="upTop" onclick="goToTop()">
+        <i class="fas fa-chevron-up"></i>
     </div>
-    <script>
-        $('.owl-carousel.hight').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        })
-        $('.owl-carousel.news').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 2
-                }
-            }
-        })
-        $('.owl-carousel.bands').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 6
-                }
-            }
-        })
-    </script>
+
+    <!-- Sccipt for owl caroucel -->
+
     <!-- Script common -->
-    <script src="./assets/js/homeScript.js"></script>
     <script src="./assets/js/commonscript.js"></script>
+
+
 </body>
+
 </html>

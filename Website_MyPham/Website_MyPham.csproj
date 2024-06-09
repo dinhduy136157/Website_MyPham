@@ -80,6 +80,7 @@
     <Content Include="View\User\Cart\Index.aspx" />
     <Content Include="View\User\Index.aspx" />
     <Content Include="View\User\LoginForm.aspx" />
+    <Content Include="View\User\Product\Index.aspx" />
     <Content Include="View\User\RegisterForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -176,6 +177,13 @@
     <Compile Include="View\Admin\Product\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\User\AnotherLayout.Master.cs">
+      <DependentUpon>AnotherLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\AnotherLayout.Master.designer.cs">
+      <DependentUpon>AnotherLayout.Master</DependentUpon>
+    </Compile>
     <Compile Include="View\User\Cart\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,6 +212,13 @@
     <Compile Include="View\User\LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\User\Product\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\Product\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\User\RegisterForm.aspx.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +231,7 @@
     <None Include="packages.config" />
     <Content Include="View\Admin\Layout.Master" />
     <Content Include="View\User\Layout.Master" />
+    <Content Include="View\User\AnotherLayout.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,6 +242,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="View\User\out_image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

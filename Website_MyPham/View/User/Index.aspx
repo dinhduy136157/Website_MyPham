@@ -3,53 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <div class="main">
-        <!-- Slider -->
-        <div class="main__slice">
-            <div class="slider">
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-6.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-4.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="slide active" style="background-image:url(./assets/img/slider/slide-5.jpg)">
-                    <div class="container">
-                        <div class="caption">
-                            <h1>Giảm giá 30%</h1>
-                            <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="listProduct.html" class="btn btn--default">Xem ngay</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- controls  -->
-            <div class="controls">
-                <div class="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="next">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-            <!-- indicators -->
-            <div class="indicator">
-            </div>
-        </div>
         <!--Product Category -->
         <div class="main__tabnine">
             <div class="grid wide">
@@ -71,7 +24,9 @@
                     <ItemTemplate>
                         <div class="col l-2 m-4 s-6">
                             <div class="product">
-                                <div class="product__avt" style="background-image: url(./assets/img/product/product1.jpg);"></div>                                <div class="product__info">
+<%--                                <div class="product__avt" style="background-image: url(./assets/img/product/{0});"></div>--%>
+                                <div class="product__avt" style='<%# Eval("image", "background-image: url(./assets/img/product/{0}") %>'></div>
+                                <div class="product__info">
                                     <h3 class="product__name"><%# Eval("SKU") %></h3>
                                     <div class="product__price">
                                         <div class="price__old">
@@ -84,8 +39,8 @@
                                         <span class="product__sale-text">Giảm</span>
                                     </div>
                                 </div>
-                                <a href="product.html" class="viewDetail">Xem chi tiết</a>
-                                <a href="cart.html" class="addToCart">Thêm vào giỏ</a>
+                                <a href='<%# Eval("product_id", "Product/Index.aspx?product_id={0}") %>' class="viewDetail">Xem chi tiết</a>
+                                <a href='<%# Eval("product_id", "Product/Index.aspx?product_id={0}") %>' >Thêm vào giỏ</a>
                             </div>
                         </div>
                     </ItemTemplate>

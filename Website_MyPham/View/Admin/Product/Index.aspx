@@ -9,11 +9,11 @@
         <asp:BoundField DataField="stock" HeaderText="Stock" />
         <asp:BoundField DataField="Category_catego" HeaderText="Thể loại" />
         <%--<asp:TemplateField HeaderText="Xoá">
-            <ItemTemplate>
-                <asp:Button ID="xoa" CommandName="xoa" CommandArgument='<%# Bind("id") %>'
-                    Text="Xoá" runat="server" OnCommand="Xoa_Click"
-                    OnClientClick="return confirm('Bạn có chắc xoá không ?')" />
-            </ItemTemplate>
+        <ItemTemplate>
+            <asp:Button ID="xoa" CommandName="xoa" CommandArgument='<%# Bind("id") %>'
+                Text="Xoá" runat="server" OnCommand="Xoa_Click"
+                OnClientClick="return confirm('Bạn có chắc xoá không ?')" />
+        </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Sửa">
             <ItemTemplate>
