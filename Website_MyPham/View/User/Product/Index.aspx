@@ -16,10 +16,10 @@
                     <h3 id="productName" class="productInfo__name" runat="server">
 
                     </h3>
-                    <div id="productPrice" class="productInfo__price">
-                         <span class="priceInfo__unit">đ</span>
+                    <div class="productInfo__price">
+                         <span id="productPrice" class="priceInfo__unit" runat="server">đ</span>
                     </div>
-                    <div id="productDescription" class="productInfo__description">
+                    <div id="productDescription" class="productInfo__description" runat="server">
                         
                     </div>
                     <div class="productInfo__addToCart">
@@ -28,7 +28,7 @@
                             <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
                             <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
                         </div>
-                        <div class=" btn btn--default orange ">Thêm vào giỏ</div>
+                        <asp:Button ID="btnAddToCart" runat="server" Text="Thêm vào giỏ" OnClick="AddToCart"/>
                     </div>
                     <div class="productIndfo__category ">
                         <p class="productIndfo__category-text"> Danh mục : <a href="# " class="productIndfo__category-link ">Nail</a></p>
@@ -48,17 +48,6 @@
                             Mô tả
                         </div>
                         <div class="line "></div>
-                    </div>
-                    <!-- Tab content -->
-                    <div class="tab-content ">
-                        <div class="tab-pane active ">
-                            <div class="productDes ">
-                                <div class="productDes__title ">Lorem Ipsum là gì?</div>
-                                <p class="productDes__text">
-                                    <!-- DESCRIPTION -->
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

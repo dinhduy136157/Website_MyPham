@@ -41,25 +41,33 @@ namespace Website_MyPham.Controllers
         }
         public List<Product> ProductDetail(int product_id)
         {
+            string sqlCon = "Data Source=DESKTOP-7BK339H;Initial Catalog=ptud;Integrated Security=True; TrustServerCertificate=True";
+
             List<Product> ds = new List<Product>();
-            string sql = "select * from Product WHERE product_id = @product_id ";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@product_id", product_id);
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
+            string sql = "SELECT * FROM Product WHERE product_id = @product_id";
+
+            using (SqlConnection con = new SqlConnection(sqlCon))
             {
-                Product product = new Product();
-                product.product_id = (int)rd["product_id"];
-                product.SKU = (string)rd["SKU"];
-                product.description = (string)rd["description"];
-                product.price = (decimal)rd["price"];
-                product.stock = (int)rd["stock"];
-                product.Category_catego = (int)rd["Category_catego"];
-                product.image = (string)rd["image"];
-                ds.Add(product);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@product_id", product_id);
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    Product product = new Product
+                    {
+                        product_id = (int)rd["product_id"],
+                        SKU = (string)rd["SKU"],
+                        description = (string)rd["description"],
+                        price = (decimal)rd["price"],
+                        stock = (int)rd["stock"],
+                        Category_catego = (int)rd["Category_catego"],
+                        image = (string)rd["image"]
+                    };
+                    ds.Add(product);
+                }
             }
-            con.Close();
             return ds;
         }
         //---------CHỈNH LẠI CODE

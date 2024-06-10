@@ -39,8 +39,8 @@
                                         <span class="product__sale-text">Giảm</span>
                                     </div>
                                 </div>
-                                <a href='<%# Eval("product_id", "Product/Index.aspx?product_id={0}") %>' class="viewDetail">Xem chi tiết</a>
-                                <a href='<%# Eval("product_id", "Product/Index.aspx?product_id={0}") %>' >Thêm vào giỏ</a>
+                                <a href='<%# Eval("product_id", "Product/Index.aspx?ProductID={0}") %>' class="viewDetail">Xem chi tiết</a>
+                                <a href='<%# Eval("product_id", "Product/Index.aspx?ProductID={0}") %>' class="addToCart" >Thêm vào giỏ</a>
                             </div>
                         </div>
                     </ItemTemplate>

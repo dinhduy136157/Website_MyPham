@@ -26,6 +26,7 @@ namespace Website_MyPham.View.User
 
                 // Lưu thông tin đăng nhập vào session
                 Session["CustomerEmail"] = cus.email;
+                Session["customer_id"] = cus.customer_id;
                 Session["CustomerPassword"] = cus.password;
                 Session["CustomerFullName"] = cus.first_name + " " + cus.last_name;
                 // Chuyển hướng đến trang chủ
