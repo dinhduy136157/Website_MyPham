@@ -23,13 +23,14 @@
                         
                     </div>
                     <div class="productInfo__addToCart">
-                        <div class="buttons_added">
-                            <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
-                            <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
-                            <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
-                        </div>
-                        <asp:Button ID="btnAddToCart" runat="server" Text="Thêm vào giỏ" OnClick="AddToCart"/>
+                    <div class="buttons_added">
+                        <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
+                        <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                        <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
                     </div>
+                    <button type="button" id="btnAddToCart">Thêm vào giỏ</button>
+                    </div>
+                    
                     <div class="productIndfo__category ">
                         <p class="productIndfo__category-text"> Danh mục : <a href="# " class="productIndfo__category-link ">Nail</a></p>
                         <p class="productIndfo__category-text"> Hãng : <a href="# " class="productIndfo__category-link ">The Face Shop</a></p>
@@ -54,4 +55,24 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("btnAddToCart").addEventListener("click", function () {
+        AddToCart();
+    });
+
+    function AddToCart() {
+        // Sử dụng AJAX để gọi hàm trong code-behind
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Xử lý phản hồi từ server (nếu cần)
+                alert('Sản phẩm đã được thêm vào giỏ hàng!');
+            }
+        };
+        xhttp.open("POST", "Index.aspx/AddToCart", true); // Đặt tên hàm và trang ASP.NET của bạn ở đây
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+    }
+</script>
+
 </asp:Content>

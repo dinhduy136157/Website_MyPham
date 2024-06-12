@@ -33,6 +33,18 @@
         font-size: 20px;
         color: #ff0000;
     }
+    .button-search {
+    background-color: #ffd800; /* Green */
+    border: none;
+    color: #808080;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 20px;
+    margin-left: -50px;
+    }
 </style>
 </head>
 
@@ -48,14 +60,14 @@
                 <a href="../Index.aspx" class="header__logo">
                     <img src="../out_image/logo.png" alt="photos">
                 </a>
-                <div class="header__search">
-                    <div class="header__search-wrap">
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm">
-                        <a class="header__search-icon" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
+                <form id="form1" runat="server">
+                    <div class="header__search">
+                        <div class="header__search-wrap">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="header__search-input" placeholder="Tìm kiếm"></asp:TextBox>
+                            <asp:Button CssClass="button-search" ID="btnRedirect" runat="server" Text="Tìm Kiếm" OnClick="btnDangNhap_Click" />
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div class="header__account">
                     <% 
                         if (Session["CustomerFullName"] != null)
@@ -114,82 +126,22 @@
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="Category/Index.aspx?category_id=1" id="category1" class="sub-nav__link heading" runat="server">Nước Hoa</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="Category/Index.aspx?category_id=2" id="category2" class="sub-nav__link heading" runat="server">Son Môi</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="Category/Index.aspx?category_id=3" id="category3" class="sub-nav__link heading" runat="server">Sơn Móng Tay</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="listProduct.html" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="Category/Index.aspx?category_id=4" id="category4" class="sub-nav__link heading" runat="server">Phấn</a>
                             </li>
                         </ul>
                     </div>

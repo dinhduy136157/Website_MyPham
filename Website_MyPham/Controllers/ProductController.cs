@@ -70,6 +70,76 @@ namespace Website_MyPham.Controllers
             }
             return ds;
         }
+        public List<Product> ProductCategory(int category_id)
+        {
+            string sqlCon = "Data Source=DESKTOP-7BK339H;Initial Catalog=ptud;Integrated Security=True; TrustServerCertificate=True";
+
+            List<Product> ds = new List<Product>();
+            string sql = "SELECT * FROM Product WHERE Category_catego = @category_id";
+
+            using (SqlConnection con = new SqlConnection(sqlCon))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@category_id", category_id);
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    Product product = new Product
+                    {
+                        product_id = (int)rd["product_id"],
+                        SKU = (string)rd["SKU"],
+                        description = (string)rd["description"],
+                        price = (decimal)rd["price"],
+                        stock = (int)rd["stock"],
+                        Category_catego = (int)rd["Category_catego"],
+                        image = (string)rd["image"]
+                    };
+                    ds.Add(product);
+                }
+            }
+            return ds;
+        }
+        public List<Product> FindProduct(string keyword = "")
+        {
+            string sqlCon = "Data Source=DESKTOP-7BK339H;Initial Catalog=ptud;Integrated Security=True; TrustServerCertificate=True";
+
+            List<Product> ds = new List<Product>();
+            string sql = "SELECT * FROM Product";
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                sql += " WHERE SKU LIKE @keyword";
+            }
+
+            using (SqlConnection con = new SqlConnection(sqlCon))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                }
+
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Product product = new Product
+                    {
+                        product_id = (int)rd["product_id"],
+                        SKU = (string)rd["SKU"],
+                        image = (string)rd["image"],
+                        price = (decimal)rd["price"],
+                        Category_catego = (int)rd["Category_catego"],
+                        stock = (int)rd["stock"],
+                        description = (string)rd["description"]
+                    };
+                    ds.Add(product);
+                }
+            }
+            return ds;
+        }
+
         //---------CHỈNH LẠI CODE
         //public void AddEmployee(Employee nv)
         //{

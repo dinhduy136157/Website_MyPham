@@ -24,6 +24,33 @@ namespace Website_MyPham.View.User
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
+        /// mainForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm mainForm;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        /// <summary>
+        /// btnRedirect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRedirect;
+
+        /// <summary>
         /// category1 control.
         /// </summary>
         /// <remarks>
@@ -33,6 +60,33 @@ namespace Website_MyPham.View.User
         protected global::System.Web.UI.HtmlControls.HtmlAnchor category1;
 
         /// <summary>
+        /// category2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor category2;
+
+        /// <summary>
+        /// category3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor category3;
+
+        /// <summary>
+        /// category4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor category4;
+
+        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>
@@ -40,14 +94,5 @@ namespace Website_MyPham.View.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Content;
-
-        /// <summary>
-        /// mainForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm mainForm;
     }
 }

@@ -13,5 +13,10 @@ namespace Website_MyPham.View.User
         {
 
         }
+        protected void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim();
+            Response.Redirect("/View/User/FindProduct/Index.aspx?keyword=" + keyword);
+        }
     }
 }

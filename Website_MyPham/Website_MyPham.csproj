@@ -78,6 +78,9 @@
     <Content Include="View\Admin\Order\Index.aspx" />
     <Content Include="View\Admin\Product\Index.aspx" />
     <Content Include="View\User\Cart\Index.aspx" />
+    <Content Include="View\User\Category\Index.aspx" />
+    <Content Include="View\User\FindProduct\Index.aspx" />
+    <Content Include="View\User\HienThiTheoGia\Index.aspx" />
     <Content Include="View\User\Index.aspx" />
     <Content Include="View\User\LoginForm.aspx" />
     <Content Include="View\User\Product\Index.aspx" />
@@ -189,6 +192,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\User\Cart\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\Category\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\Category\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\FindProduct\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\FindProduct\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\HienThiTheoGia\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\HienThiTheoGia\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\User\Index.aspx.cs">

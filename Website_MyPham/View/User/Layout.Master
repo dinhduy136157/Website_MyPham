@@ -30,6 +30,18 @@
             font-size: 20px;
             color: #ff0000;
         }
+        .button-search {
+          background-color: #ffffff; /* Green */
+          border: none;
+          color: #808080;
+          padding: 5px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 12px;
+          border-radius: 20px;
+          margin-left: -50px;
+        }
     </style>
 </head>
 <body>
@@ -44,15 +56,30 @@
                 <a href="./Index.aspx" class="header__logo">
                     <img src="./assets/logo.png" alt="">
                 </a>
-                <div class="header__search">
-                    <div class="header__search-wrap">
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm">
-                        <a class="header__search-icon" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
+                <form id="mainForm" runat="server">
+
+                    <!-- Modal Form -->
+                    <div class="ModalForm">
+                        <div class="modal" id="my-Register" style="margin: 5% auto; width: 500px; height: 700px;">
+                                <%-- Form Đăng Ký--%>
+                            <iframe src="RegisterForm.aspx" style="width: 100%; height: 600px;"></iframe>
+                        </div>
+                        <div class="modal" id="my-Login" style="margin: 10% auto; width: 500px;">
+                                <%-- Form Đăng Nhập--%>
+                            <iframe src="LoginForm.aspx" style="width: 100%; height: 400px;"></iframe>
+                        </div>
+                        <div class="up-top" id="upTop" onclick="goToTop()">
+                            <i class="fas fa-chevron-up"></i>
+                        </div>
+
                     </div>
-                </div>
-                
+                    <div class="header__search">
+                        <div class="header__search-wrap">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="header__search-input" placeholder="Tìm kiếm"></asp:TextBox>
+                            <asp:Button CssClass="button-search" ID="btnRedirect" runat="server" Text="Tìm Kiếm" OnClick="btnDangNhap_Click" />
+                        </div>
+                    </div>
+                </form>
                 <div class="header__account">
                     <div class="header__account">
                         <% 
@@ -115,7 +142,22 @@
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a runat="server" id="category1" href="#" class="sub-nav__link heading">aaaa</a>
+                                <a href="Category/Index.aspx?category_id=1" id="category1" class="sub-nav__link heading" runat="server">Nước Hoa</a>
+                            </li>
+                        </ul>
+                        <ul class="sub-nav">
+                            <li class="sub-nav__item">
+                                <a href="Category/Index.aspx?category_id=2" id="category2" class="sub-nav__link heading" runat="server">Son Môi</a>
+                            </li>
+                        </ul>
+                        <ul class="sub-nav">
+                            <li class="sub-nav__item">
+                                <a href="Category/Index.aspx?category_id=3" id="category3" class="sub-nav__link heading" runat="server">Sơn Móng Tay</a>
+                            </li>
+                        </ul>
+                        <ul class="sub-nav">
+                            <li class="sub-nav__item">
+                                <a href="Category/Index.aspx?category_id=4" id="category4" class="sub-nav__link heading" runat="server">Phấn</a>
                             </li>
                         </ul>
                     </div>
@@ -279,23 +321,7 @@
             <span class="footer__text">&copy Bản quyền thuộc về <a class="footer__link" href="#">Đinh Văn Duy</a></span>
         </div>
     </div>
-    <!-- Modal Form -->
-    <div class="ModalForm">
-        <form id="mainForm" runat="server">
-            <div class="modal" id="my-Register" style="margin: 5% auto; width: 500px; height: 700px;">
-                 <%-- Form Đăng Ký--%>
-                <iframe src="RegisterForm.aspx" style="width: 100%; height: 600px;"></iframe>
-            </div>
-            <div class="modal" id="my-Login" style="margin: 10% auto; width: 500px;">
-                   <%-- Form Đăng Nhập--%>
-                <iframe src="LoginForm.aspx" style="width: 100%; height: 400px;"></iframe>
-            </div>
-        </form>
-        <div class="up-top" id="upTop" onclick="goToTop()">
-            <i class="fas fa-chevron-up"></i>
-        </div>
-
-    </div>
+    
     <script>
         $('.owl-carousel.hight').owlCarousel({
             loop: true,
@@ -361,5 +387,8 @@
     <!-- Script common -->
     <script src="./assets/js/homeScript.js"></script>
     <script src="./assets/js/commonscript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </body>
 </html>

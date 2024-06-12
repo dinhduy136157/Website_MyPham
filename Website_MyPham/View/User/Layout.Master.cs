@@ -21,14 +21,19 @@ namespace Website_MyPham.View.User
 
         public void Hienthi()
         {
-            
+            //List<Category> ds = data.DsCategory();
+            //category1.InnerText = ds[0].name;
+            //category2.InnerText = ds[1].name;
+            //category1.InnerText = ds[2].name; 
+            //category4.InnerText = ds[3].name;
         }
 
-        [WebMethod]
-        protected void btnDangNhap_Click()
+        protected void btnDangNhap_Click(object sender, EventArgs e)
         {
-            
+            string keyword = txtSearch.Text.Trim();
+            Response.Redirect("/View/User/FindProduct/Index.aspx?keyword=" + keyword);
         }
+
         protected static string SubmitFormRegister(string first_name, string last_name, string email, string phone_number, string password, string address)
         {
             return $"{first_name}";
