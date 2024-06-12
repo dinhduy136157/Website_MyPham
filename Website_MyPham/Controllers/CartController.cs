@@ -17,14 +17,14 @@ namespace Website_MyPham.Controllers
             con = new SqlConnection(sqlCon);
 
         }
-        public void AddCart(Cart cart)
+        public void AddCart(int product_id, int customer_id, int quantity)
         {
             con.Open();
             string sql = "insert into Cart values(@quantity,@Customer_customer_id,@Product_product_id)";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("quantity", cart.quantity);
-            cmd.Parameters.AddWithValue("Customer_customer_id", cart.Customer_customer_id);
-            cmd.Parameters.AddWithValue("Product_product_id", cart.Product_product_id);
+            cmd.Parameters.AddWithValue("quantity", quantity);
+            cmd.Parameters.AddWithValue("Customer_customer_id", customer_id);
+            cmd.Parameters.AddWithValue("Product_product_id", product_id);
             cmd.ExecuteNonQuery();
             con.Close();
         }

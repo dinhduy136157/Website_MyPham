@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Services;
+using System.Web;
 using System.Web.UI;
 using Website_MyPham.Controllers;
 using Website_MyPham.Models;
@@ -52,38 +54,17 @@ namespace Website_MyPham.View.User.Product
             }
         }
 
-       
-        protected void AddToCart(object sender, EventArgs e)
+
+        [WebMethod]
+        public static string AddToCart(int productID)
         {
-            int productID;
-            if (int.TryParse(Request.QueryString["ProductID"], out productID))
-            {
-                var products = data.ProductDetail(productID);
-                var product = products[0];
-                if (Session["customer_id"] != null)
-                {
-                    int customerId = (int)Session["customer_id"];
-                    Website_MyPham.Models.Cart cart = new Website_MyPham.Models.Cart
-                    {
-                        quantity = 1,
-                        Customer_customer_id = customerId, // Hàm tính tổng giá tiền của giỏ hàng
-                        Product_product_id = product.product_id,
-                    };
-                    dataCart.AddCart(cart);
-                    ClientScript.RegisterStartupScript(this.GetType(), "addToCartSuccess", "alert('Hàm AddToCart đã được gọi!');", true);
-                }
+            int customerId = (int)HttpContext.Current.Session["customer_id"];
+            CartController dataCart = new CartController();
+            dataCart.AddCart(productID, customerId, 1);
 
-            }
-            else
-            {
-                 //Hiển thị thông báo thất bại sử dụng alert
-                ClientScript.RegisterStartupScript(this.GetType(), "addToCartFailure", "alert('Vui lòng đăng nhập để thêm vào giỏ hàng!');", true);
-            }
-
-            ClientScript.RegisterStartupScript(this.GetType(), "addToCartFailure", "alert('AAAAAAAAAA!');", true);
-
+            return "Sản phẩm đã được thêm vào giỏ hàng!";
         }
-        
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             // Bắt buộc khi sử dụng các control chạy phía server

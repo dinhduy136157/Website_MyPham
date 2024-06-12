@@ -28,7 +28,7 @@
                         <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
                         <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
                     </div>
-                    <button type="button" id="btnAddToCart">Thêm vào giỏ</button>
+                    <button type="button" id="btnAddToCart" onclick="addToCart()">Thêm vào giỏ</button>
                     </div>
                     
                     <div class="productIndfo__category ">
@@ -56,22 +56,33 @@
     </div>
 </div>
 <script>
-    document.getElementById("btnAddToCart").addEventListener("click", function () {
-        AddToCart();
-    });
+    function addToCart() {
+        // Lấy productID từ query string hoặc cách khác
+        var urlParams = new URLSearchParams(window.location.search);
+        var productID = urlParams.get('ProductID');
 
-    function AddToCart() {
-        // Sử dụng AJAX để gọi hàm trong code-behind
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                // Xử lý phản hồi từ server (nếu cần)
-                alert('Sản phẩm đã được thêm vào giỏ hàng!');
-            }
-        };
-        xhttp.open("POST", "Index.aspx/AddToCart", true); // Đặt tên hàm và trang ASP.NET của bạn ở đây
-        xhttp.setRequestHeader("Content-type", "application/json");
-        xhttp.send();
+        if (productID) {
+            // Sử dụng AJAX để gọi phương thức AddToCart trong code-behind
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText); // Hiển thị phản hồi từ server
+                }
+            };
+            xhttp.open("POST", "Index.aspx/AddToCart", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({ productID: productID }));
+        } else {
+            alert("Không tìm thấy ProductID");
+        }
+    }
+
+    function minusProduct() {
+        // Thực hiện giảm số lượng sản phẩm
+    }
+
+    function plusProduct() {
+        // Thực hiện tăng số lượng sản phẩm
     }
 </script>
 
