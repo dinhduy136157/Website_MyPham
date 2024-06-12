@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Services;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using Website_MyPham.Controllers;
 using Website_MyPham.Models;
@@ -12,6 +12,7 @@ namespace Website_MyPham.View.User.Product
     {
         ProductController data = new ProductController();
         CartController dataCart = new CartController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -54,15 +55,20 @@ namespace Website_MyPham.View.User.Product
             }
         }
 
-
         [WebMethod]
-        public static string AddToCart(int productID)
+        public static string AddToCart(int productID, int quantity)
         {
-            int customerId = (int)HttpContext.Current.Session["customer_id"];
-            CartController dataCart = new CartController();
-            dataCart.AddCart(productID, customerId, 1);
-
-            return "Sản phẩm đã được thêm vào giỏ hàng!";
+            if (HttpContext.Current.Session["customer_id"] != null)
+            {
+                int customerId = (int)HttpContext.Current.Session["customer_id"];
+                CartController dataCart = new CartController();
+                dataCart.AddCart(productID, customerId, quantity);
+                return "Sản phẩm đã được thêm vào giỏ hàng!";
+            }
+            else
+            {
+                return "Vui lòng đăng nhập để thêm vào giỏ hàng!";
+            }
         }
 
         public override void VerifyRenderingInServerForm(Control control)

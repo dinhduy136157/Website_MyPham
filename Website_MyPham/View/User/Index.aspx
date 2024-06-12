@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/User/Layout.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Website_MyPham.View.User.Index" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -40,7 +41,7 @@
                     </div>
                     <div class="line"></div>
                 </div>
-                
+
                 <!--------------------------------------LIST SẢN PHẨM CẦN FILL ------------------------------------>
                 <div class="product-list">
                     <asp:Repeater ID="ProductRepeater" runat="server">
