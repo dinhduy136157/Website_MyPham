@@ -17,6 +17,31 @@ namespace Website_MyPham.Controllers
             con = new SqlConnection(sqlCon);
 
         }
+        public List<Cart> DsCart(int customerId)
+        {
+            List<Cart> ds = new List<Cart>();
+            string sql = "SELECT SKU, image, quantity, price from Cart\r\nJOIN Product ON Cart.Product_product_id = Product.product_id\r\nWHERE Customer_customer_id = @customer_id";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("customer_id", customerId);
+
+            SqlDataReader rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                Cart cart = new Cart();
+                cart.Product = new Product()
+                {
+                    SKU = rd["SKU"].ToString(),
+                    image = rd["image"].ToString(),
+                    price = (decimal)rd["price"],
+                };
+                cart.quantity = (int)rd["quantity"];
+                cart.totalPrice = cart.Product.price * Convert.ToInt32(rd["quantity"]);
+                ds.Add(cart);
+            }
+            con.Close();
+            return ds;
+        }
         public void AddCart(int product_id, int customer_id, int quantity)
         {
             con.Open();

@@ -11,13 +11,18 @@ namespace Website_MyPham.Models
         public int quantity { get; set; }
         public int Customer_customer_id { get; set; }
         public int Product_product_id { get; set; }
+        public Customer Customer { get; set; }
+        public Product Product { get; set; }
+        public decimal totalPrice {  get; set; }
         public Cart() { }
-        public Cart(int cart_id, int quantity, int customer_customer_id, int product_product_id)
+        public Cart(int cart_id, int quantity, int customer_customer_id, int product_product_id, Customer customer, Product product)
         {
             this.cart_id = cart_id;
             this.quantity = quantity;
             Customer_customer_id = customer_customer_id;
             Product_product_id = product_product_id;
+            Customer = customer;
+            Product = product;
         }
     }
 }

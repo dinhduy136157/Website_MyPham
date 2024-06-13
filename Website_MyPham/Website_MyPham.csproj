@@ -83,6 +83,7 @@
     <Content Include="View\User\HienThiTheoGia\Index.aspx" />
     <Content Include="View\User\Index.aspx" />
     <Content Include="View\User\LoginForm.aspx" />
+    <Content Include="View\User\Pay\Index.aspx" />
     <Content Include="View\User\Product\Index.aspx" />
     <Content Include="View\User\RegisterForm.aspx" />
     <Content Include="Web.config" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="View\User\LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\Pay\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\User\Pay\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\User\Product\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
