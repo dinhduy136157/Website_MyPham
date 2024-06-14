@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/User/AnotherLayout.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Website_MyPham.View.User.Cart.Index" %>
-
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="../assets/css/cart.css">
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <div class="main">
         <div class="grid wide">
@@ -72,7 +74,7 @@
                                 
                             </div>
                         </div>
-                        <div class="btn btn--default orange">Tiến hành thanh toán</div>
+                        <a href="../pay/Index.aspx"><div class="btn btn--default orange">Tiến hành thanh toán</div></a>
                         <div class="main__pay-title">Phiếu ưu đãi</div>
                         <input type="text" class="form-control">
                         <div class="btn btn--default">Áp dụng</div>

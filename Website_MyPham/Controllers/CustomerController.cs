@@ -39,6 +39,29 @@ namespace Website_MyPham.Controllers
             con.Close();
             return ds;
         }
+        public List<Customer> takeFirstCustomer(int customer_id)
+        {
+            List<Customer> ds = new List<Customer>();
+            string sql = "select * from Customer Where customer_id = @customer_id";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("customer_id", customer_id);
+            SqlDataReader rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                Customer customer = new Customer();
+                customer.customer_id = (int)rd["customer_id"];
+                customer.first_name = (string)rd["first_name"];
+                customer.last_name = (string)rd["last_name"];
+                customer.email = (string)rd["email"];
+                customer.password = (string)rd["password"];
+                customer.address = (string)rd["address"];
+                customer.phone_number = (string)rd["phone_number"];
+                ds.Add(customer);
+            }
+            con.Close();
+            return ds;
+        }
         public void AddCustomer(Customer customer)
         {
             con.Open();

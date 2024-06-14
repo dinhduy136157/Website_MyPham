@@ -53,7 +53,7 @@ namespace Website_MyPham.Controllers
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void AddOrders(Orders ord)
+        public void AddOrder(Orders ord)
         {
             con.Open();
             string sql = "insert into Orders values(@order_date,@total_price,@Customer_custo,@Payment_payme, @Shipment_shipm)";
@@ -66,7 +66,7 @@ namespace Website_MyPham.Controllers
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void AddCartDetail(OrderItem ord)
+        public void AddOrderDetail(OrderItem ord)
         {
             con.Open();
             string sql = "insert into Order_Item values(@quantity,@price,@Product_prod,@Order_order_i, @status)";
