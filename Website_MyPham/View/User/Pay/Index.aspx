@@ -32,30 +32,21 @@
                 <div class="col l-5 m-12 s-12">
                     <div class="pay-order">
                         <div class="pay__heading">Đơn hàng của bạn</div>
-                        <div class="pay-info">
-                            <div class="main__pay-text">
-                                Azrouel dress variable</div>
-                            <div class="main__pay-price">
-                                1,120,000 ₫
-                            </div>
-                        </div>
-                        <div class="pay-info">
-                            <div class="main__pay-text">
-                                Azrouel dress variable </div>
-                            <div class="main__pay-amount">
-                                3
-                            </div>
-                            <div class="main__pay-price">
-                                1,120,000 ₫
-                            </div>
-                        </div>
-                        <div class="pay-info">
-                            <div class="main__pay-text">
-                                Azrouel dress variable </div>
-                            <div class="main__pay-price">
-                                1,120,000 ₫
-                            </div>
-                        </div>
+                        <asp:Repeater ID="ProductRepeater" runat="server">
+                            <ItemTemplate>
+                                <div class="pay-info">
+                                    <div class="main__pay-text">
+                                        <%# Eval("Product.SKU") %>
+                                    </div>
+                                    <div class="main__pay-amount">
+                                        <%# Eval("quantity") %>
+                                    </div>
+                                    <div class="main__pay-price">
+                                        <%# Eval("totalPrice") %>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <div class="pay-info">
                             <div class="main__pay-text special">
                                 Giao hàng
@@ -63,20 +54,51 @@
                             <div class="main__pay-text">
                                 Giao hàng miễn phí
                             </div>
-
                         </div>
                         <div class="pay-info">
                             <div class="main__pay-text special">
                                 Tổng thành tiền</div>
-                            <div class="main__pay-price">
-                                1,120,000 ₫
+                            <div runat="server" id="tongTien1" class="main__pay-price">
                             </div>
                         </div>
-                        <div class="btn btn--default">Đặt hàng</div>
+                        <div class="btn btn--default" id="btnDatHang">Đặt hàng</div>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
+<script>
+    document.getElementById("btnDatHang").addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "Index.aspx/AddOrderItemWeb", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                try {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        // Xử lý khi đặt hàng thành công
+                        window.location.href = '../../Index'; // Chuyển hướng đến trang kế tiếp sau khi đặt hàng thành công
+                    } else {
+                        // Xử lý khi đặt hàng thất bại
+                        alert('Đặt hàng thành công');
+                    }
+                } catch (e) {
+                    alert('Đã xảy ra lỗi khi phân tích phản hồi từ server: ' + e.message);
+                }
+            } else {
+                // Xử lý lỗi khi kết nối server
+                alert('Đã xảy ra lỗi khi kết nối đến server.');
+            }
+        };
+        xhr.onerror = function () {
+            // Xử lý khi gặp lỗi không mong muốn
+            alert('Đã xảy ra lỗi không mong muốn.');
+        };
+        xhr.send();
+    });
+</script>
+
 </asp:Content>
+
